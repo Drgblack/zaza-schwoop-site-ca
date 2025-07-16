@@ -2,16 +2,22 @@
 
 import type React from "react"
 import SchwoopFooter from "@/components/schwoop-footer"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card } from "@/components/ui/card"
-import { redirect } from "next/navigation"
+import { useRouter } from "next/navigation"
 
 export default function HomePage() {
   const [tiktokUrl, setTiktokUrl] = useState("")
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
+  const router = useRouter()
+
+  useEffect(() => {
+    // Redirect to challenge1 page
+    router.replace("/challenge1")
+  }, [router])
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -65,8 +71,6 @@ export default function HomePage() {
       </div>
     )
   }
-
-  redirect("/challenge1")
 
   return (
     <div className="min-h-screen bg-[#1E1F4A] flex flex-col text-white">
