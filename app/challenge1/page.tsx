@@ -6,7 +6,6 @@ import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card } from "@/components/ui/card"
-import { redirect } from "next/navigation"
 
 export default function HomePage() {
   const [tiktokUrl, setTiktokUrl] = useState("")
@@ -65,8 +64,6 @@ export default function HomePage() {
       </div>
     )
   }
-
-  redirect("/challenge1")
 
   return (
     <div className="min-h-screen bg-[#1E1F4A] flex flex-col text-white">
